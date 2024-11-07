@@ -3,7 +3,6 @@
 import React, {useEffect, useState} from 'react';
 import {VideoItem} from "@/app/models/videoItem";
 
-
 const playlistId: string = 'PL8EoGH5rIjYzIkuiRdliVIZDATfxoBT2g';
 
 // Fonction pour charger les vidéos avec cache

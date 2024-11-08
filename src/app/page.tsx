@@ -15,7 +15,7 @@ const Page = () => {
             await getNewVideos(setVideo1, setVideo2);
         }
 
-        loadVideos();
+        void loadVideos();
     }, []);
 
     return (<div className="container d-flex justify-content-center align-items-center">

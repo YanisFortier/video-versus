@@ -1,14 +1,7 @@
-import type {Metadata} from "next";
-import "./globals.css";
+import "./style.css";
 import React from "react";
 
-export const metadata: Metadata = {
-    title: "Video Versus", description: "Besoin de trier les vidéos de la playlist ? Vidéo-Versus est là pour toi !",
-};
-
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+export default function RootLayout({children}: Readonly<{
     children: React.ReactNode;
 }>) {
     return (<html lang="en" data-bs-theme="dark">
@@ -22,6 +15,8 @@ export default function RootLayout({
         <link href={"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"} rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossOrigin="anonymous"/>
+        <link rel="icon"
+              href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"/>
         <title>Video Versus</title>
     </head>
     <body>

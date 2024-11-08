@@ -1,6 +1,6 @@
 // src/app/utils/VideoRandomizer.tsx
-import { VideoItem } from "@/app/models/videoItem";
-import { fetchPlaylistVideosWithCache } from "@/app/utils/VideoFetcher";
+import {VideoItem} from "@/app/models/videoItem";
+import {fetchPlaylistVideosWithCache} from "@/app/utils/VideoFetcher";
 
 // Fonction pour obtenir 2 vidéos aléatoires
 export function getRandomVideos(videos: VideoItem[]): VideoItem[] {

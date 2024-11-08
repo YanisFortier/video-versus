@@ -1,5 +1,5 @@
 // src/app/utils/VoteHandler.tsx
-import {updateElo} from "@/app/utils/updateDatabase";
+import {updateElo} from "@/app/database/updateDatabase";
 import {VideoItem} from "@/app/models/videoItem";
 import {getNewVideos} from "@/app/utils/VideoRandomizer";
 

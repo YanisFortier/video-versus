@@ -1,7 +1,7 @@
 // src/app/utils/VideoFetcher.tsx
 "use client";
 
-import { VideoItem } from "@/app/models/videoItem";
+import {VideoItem} from "@/app/models/videoItem";
 
 const playlistId: string = 'PL8EoGH5rIjYzIkuiRdliVIZDATfxoBT2g';
 

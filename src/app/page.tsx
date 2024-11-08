@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {VideoItem} from "@/app/models/videoItem";
+import {updateElo} from "@/app/seed/route";
 
 const playlistId: string = 'PL8EoGH5rIjYzIkuiRdliVIZDATfxoBT2g';
 
@@ -34,7 +35,7 @@ async function fetchPlaylistVideos(): Promise<VideoItem[]> {
         if (data.items) {
             videos.push(...data.items.map((item: any) => new VideoItem(item.snippet.resourceId.videoId)));
         } else {
-            console.error('Erreur dans la réponse de l\'API YouTube:', data);
+            console.error("Erreur dans la réponse de l'API YouTube:", data);
             break;
         }
 
@@ -59,11 +60,6 @@ function getRandomVideos(videos: VideoItem[]): VideoItem[] {
     return [videos[randomIndices[0]], videos[randomIndices[1]]];
 }
 
-// Fonction pour la mise à jour du système Elo (place-holder, à ajuster selon ta logique)
-async function updateElo(winnerId: string, loserId: string) {
-    console.log(`Mise à jour Elo pour: gagnant ${winnerId}, perdant ${loserId}`);
-}
-
 async function getNewVideos(setVideo1: any, setVideo2: any) {
     const videos = await fetchPlaylistVideosWithCache();
     const [newVid1, newVid2] = getRandomVideos(videos);
@@ -84,11 +80,20 @@ const Page = () => {
         loadVideos();
     }, []);
 
-    // Gérer les votes et mise à jour de l'Elo
     const handleVote = async (winner: VideoItem, loser: VideoItem) => {
-        await updateElo(winner.videoId, loser.videoId);
+        console.log(`Mise à jour Elo pour: gagnant ${winner.videoId}, perdant ${loser.videoId}`);
+
+        const result = await updateElo(winner.videoId, loser.videoId);
+
+        if (result.error) {
+            console.error("Erreur de mise à jour ELO :", result.error);
+        } else {
+            console.log(result.message);
+        }
+
         await getNewVideos(setVideo1, setVideo2);
     };
+
 
     return (<>
         <div className="container d-flex justify-content-center align-items-center">
